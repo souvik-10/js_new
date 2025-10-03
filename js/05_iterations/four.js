@@ -30,6 +30,7 @@ for (const key in programming) {
 
 // for in loop cant execute in Map cuz it will be not iterable in case of Map
 
+console.log("hello")
 
 
 
