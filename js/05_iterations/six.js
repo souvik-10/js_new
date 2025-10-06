@@ -11,7 +11,7 @@
 // })
 // console.log(values);
 
-//  ******************************  filter -- it is used to filter things which you want fro  the whole array or function 
+//  ******************************  filter -- it is used to filter things which you want from the whole array or function it check the condition is true or not then it execute
 
 // const myNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
