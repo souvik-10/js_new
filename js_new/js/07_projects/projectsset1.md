@@ -35,6 +35,6 @@ buttons.forEach(function (button) {
   });
 });
 
-hiisis s s s s s s 
+
 
 ```
