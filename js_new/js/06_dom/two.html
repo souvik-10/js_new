@@ -1,0 +1,48 @@
+<!-- // DOM week days example about querySelector and parent and children -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | js</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+
+    </div>
+    
+</body>
+<script>
+const parent =  document.querySelector(".parent") // document is used to view the DOM file and querysel is used to perform changes and (.parent) is used to access into the parent file 
+//    console.log(parent);
+//    console.log(parent.children);
+//    console.log(parent.children[1].innerHTML);
+   
+//    for (let i = 0; i < parent.children.length; i++) {
+//     console.log(parent.children[i].innerHTML);
+    
+//    }
+parent.children[1].style.color = "blue"
+// console.log (parent.firstElementChild);
+// console.log (parent.lastElementChild);
+
+const dayOne = document.querySelector(".day")
+console.log(dayOne);
+console.log(dayOne.parentElement); // it will print the whole parent of the DOM tree week days
+console.log(dayOne.nextElementSibling); // it will print next day element means 2nd day of the first 
+
+console.log("NODES : ", parent.childNodes); // it will print the whole DOM tree Nodes summary, about the whole tree known and unknown (hidden)    
+   
+   
+</script>
+</html>
+
+
+
+
+
+

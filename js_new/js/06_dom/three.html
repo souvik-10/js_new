@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DOM Part 2 element creation </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+  const div = document.createElement("div") // helps to create element by (createElement) method named as ("div") or whatever name you give
+  console.log(div);
+  div.className = "main" // for div class name 
+  div.id = Math.round(Math.random() * 10  + 1) // for div id which is random through (math.random)
+  div.setAttribute("Title", "Generated Title") // used for setting up title and its key value  
+  div.style.backgroundColor = "blue"
+  div.style.padding = "12px" // till this our text on the page wont show us so we have to add innertext or addtext
+//   div.innerText = "Dom element create" // we can use (innertext) too for adding text or something in the page
+  const addText = document.createTextNode("Dom element create") // other way of addingtext on the page 
+  div.appendChild(addText)
+  
+  document.body.appendChild(div) // it will help to attach the div with the body to display the text on th page  
+
+</script>
+</html> 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dom part 4 function creation, editing values and removing values  </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+
+    </ul>
+</body>
+<script>
+     function addLanguage(langName){ // function creation for (langname) input
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').
+        appendChild(li) // it will help to add new (langname) with the already created (li) 
+
+
+     }
+     addLanguage("python")
+     addLanguage("typescript")
+
+     function addOptiLanguage(langName){ // optimised way cuz here whole function is not traversed due to (innerhtml)
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li)
+
+     }
+     addOptiLanguage("golang")
+
+    // Edit elements in Dom -
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "mojo" // due to (innerhtml) its not an optimised way cuz it will traverse th whole document
+    
+    const newli = document.createElement("li") 
+    newli.textContent = "mojo"
+    secondLang.replaceWith(newli) // (replacewith) is the optimised way of adding or editing the document 
+
+    // Edit example-
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = "<li>TypeScript</li>" // editing (firstlang) with (Typescript) with (outerhtml) method
+    
+    // remove -  remove elements in Dom 
+    const lastlang = document.querySelector("li:last-child")
+    lastlang.remove() // will remove the last element (golang) from the webpage 
+    
+
+
+
+
+</script>
+</html>
