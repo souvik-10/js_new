@@ -73,3 +73,23 @@ form.addEventListener('submit', function (e) {
 
 
 ```
+
+## project 3 solution
+
+``` javascript 
+document.getElementById('clock'); // (getelementbyid) is same used as queryselector
+// document.querySelector('#clock');
+
+// let date = new Date();
+// console.log(date.toLocaleTimeString()); // (tolocaletimestring) is used to display current local area time zone
+
+setInterval(function () {
+  let date = new Date();
+
+  // console.log(date.toLocaleTimeString());
+
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000); // (setinterval) is used to run events in js for whole time or just when we want it. we will get each interval values by it.
+
+
+```
