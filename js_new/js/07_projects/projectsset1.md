@@ -93,3 +93,122 @@ setInterval(function () {
 
 
 ```
+
+
+## project 4 solution 
+
+``` javascript 
+
+let randomNumber = parseInt(Math.random() * 100 + 1); // (parseint) is used for converting rand no to a int value.
+
+const submit = document.querySelector('#subt');
+
+const userInput = document.querySelector('#guessField');
+
+const guessSlot = document.querySelector('.guesses'); // putting . cuz (guesses) is a class
+
+const remaining = document.querySelector('.lastResult');
+
+const lowOrHi = document.querySelector('.lowOrHi');
+
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+let prevGuess = []; // array creation to submit values.
+
+let numGuess = 1;
+
+let playGame = true; // used for playing or creating some games in js.
+
+if (playGame) {
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    console.log(guess);
+    validateGuess(guess);
+  });
+}
+
+function validateGuess(guess) {
+  // function created for checking if valid no or >= values are entered.
+
+  if (isNaN(guess)) {
+    alert('please enter a valid number');
+  } else if (guess < 1) {
+    alert('please enter a number more than 1');
+  } else if (guess > 100) {
+    alert('please enter a number less than 100');
+  } else {
+    prevGuess.push(guess);
+    if (numGuess === 11) {
+      displayGuess(guess);
+      displayMessage(`Game Over. Random number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  // method created to check validity of values.
+  if (guess === randomNumber) {
+    displayMessage(`you guessed it right`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage(`Number is toooo low`);
+  } else if (guess > randomNumber) {
+    displayMessage(`number is tooo high`);
+  }
+}
+
+function displayGuess(guess) {
+  // clear the output section.
+
+  userInput.value = ' '; // for value cleanup
+  guessSlot.innerHTML += `${guess},   `; // for adding values
+  numGuess++; // for updating added values
+  remaining.innerHTML = `${11 - numGuess}`;
+}
+
+function displayMessage(message) {
+  // interacts with DOM.
+
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  //
+
+  userInput.value = ' ';
+  userInput.setAttribute('disabled', ' ');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">start new game</h2>`;
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+
+function newGame() {
+  //
+
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', function (e) {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+    guessSlot.innerHTML = ' ';
+    remaining.innerHTML = `${11 - numGuess}`;
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(p);
+
+    playGame = true;
+  });
+}
+
+
+
+
+```
