@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+
+     <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+
+
+</body>
+<script>
+
+    //document.getElementById("owl").onclick = function() {
+    //   alert("owl clicked")
+    //} // using (.onclick) is not a good practise in this economy cuz it doesn't provide you more features, so using (addEventLisener) will be best.
+    
+   // document.getElementById("owl").addEventListener('click', function(e){
+       // alert("owl clicked again")
+    //    console.log(e);
+       
+
+    // }, false)
+
+
+    // Event propagation---- //
+
+    // document.getElementById("images").addEventListener("click", function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById("owl").addEventListener("click", function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation(); // it will stop bubbling all other elements except the one which we clicked.
+    
+    // }, false)
+
+    // document.getElementById("google").addEventListener("click", function(e){
+    //     e.preventDefault(); 
+    //     e.stopPropagation(); // it will stop bubbling all other elements except the one which we clicked.
+    //     console.log("google clicked");
+        
+
+    // }, false)
+
+
+
+
+    // necessary topics in Events to prepare for interview- 
+    // type - (keyboard type events, mouse type events)
+    // timestamp - (date, time activities changing )
+    // defaultprevented - (to prevent deafault activities, navigation etc)
+    // target
+    // toElement
+    // srcElement
+    // currentTarget
+    
+    
+    // vvvip for interview perspective- 
+    // clientX, clientY, screenX, screenY (client location values or coordinates )
+    // altKey, ctrlKey, shiftKey (if alt/ ctrl keys are pressed )
+    // keyCode (keyCode of A,B,C etc) -- (mostly used in typing master keyboards app, to detect the speed of user typing )
+
+
+
+
+
+    // EventPropogation----  //
+
+    // eventpropagation have two context- EventBubbling and EventCapturing
+    // mostly used one is Default one (, false)) which is under EventBubbling
+
+
+    // ------- project on removing the image which we click   --------//(from the referred images we have used)
+
+    document.querySelector("#images").addEventListener("click", function(e){
+        // console.log(e.target.parentNode); // (target) helps us to give information about the event in which we click, how the image occurs.
+        // (e.parentNode) gives us the whole li(list) or the whole parent node of that clicked element.
+
+        console.log(e.target.tagName); // changed (.parentNode) to (.tagName) cuz if we click any whole then the whole page is removed,  but we want to remove the images only.
+        if (e.target.tagName === 'IMG') {
+
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove();
+
+            
+        }      
+
+        // ------- main function for removing the image li ---------- 
+
+        // let removeIt = e.target.parentNode;
+        // removeIt.remove(); // it will remove the element or image which we click. 
+
+       // another way--- 
+       
+    //    removeIt.parentNode.removeChild(removeIt); // it is a newer method used for removing.
+
+        
+
+    }, false)
+
+
+
+
+
+
+
+
+</script>
+</html>
+
+<!-- js is a sequential language  -->
+ <!-- Events in js is like tracking activities such as moving mouse, clicking button, submit button etc>
+
