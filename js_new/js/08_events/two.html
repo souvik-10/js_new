@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>chai aur code </h1>
+    <button id="stop">stop</button>
+    
+</body>
+<script>
+    const saysouvik = function(){
+        console.log("souvik");
+        
+    }
+
+
+    setTimeout( saysouvik,2000) // (settimeout) is a method which is used to call Api too (used to provide output but according to the time interval like after 2 secs)
+
+
+    const changetext = function() {
+        document.querySelector('h1').
+        innerHTML = "best js series"
+    }
+
+
+    const changeMe =  setTimeout(changetext,2000) // (settimeout) same method as above which helps to print the changed (h1) text after 2 secs interval of time.
+
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe) // (cleartimeout) is used to stop the mentioned above (settimeout) by clicking the stop button we can stop the change after the time interval.
+        console.log("stopped");
+        
+    })
+
+    
+
+
+
+
+
+  
+
+
+
+
+
+</script>
+</html>
