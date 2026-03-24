@@ -1,9 +1,10 @@
 # projects related to DOM
 
 ## project link
-[Click here](https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html)
 
-# Solution code
+[Click here]  (https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html)
+
+## Solution code
 
 ## project 1
 
@@ -39,9 +40,9 @@ buttons.forEach(function (button) {
 
 ```
 
-## project 2 solution 
+## project 2
 
-``` javascript 
+```javascript
 
 const form = document.querySelector('form');
 
@@ -76,7 +77,8 @@ form.addEventListener('submit', function (e) {
 
 ## project 3 solution
 
-``` javascript 
+```javascript
+
 document.getElementById('clock'); // (getelementbyid) is same used as queryselector
 // document.querySelector('#clock');
 
@@ -95,9 +97,9 @@ setInterval(function () {
 ```
 
 
-## project 4 solution 
+## project 4 solution
 
-``` javascript 
+```javascript
 
 let randomNumber = parseInt(Math.random() * 100 + 1); // (parseint) is used for converting rand no to a int value.
 
@@ -252,10 +254,43 @@ window.addEventListener('keydown', (e) => {
 
 ## project 6 solution
 
-``` javascript
+```javascript
 
 
 
+
+
+// generate a random color
+
+const randomColor = function () {
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+let intervalId;
+const startChangingColor = function () {
+  if (!intervalId) {
+    intervalId = setInterval(changeBgColor, 1000);
+  }
+
+  function changeBgColor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+
+  // document.body.style.backgroundColor = randomColor();
+};
+
+const stopChangingColor = function () {
+  clearInterval(intervalId);
+  intervalId = null; // best practise to clean up the code for professional code writing.
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
 
 
 
